@@ -1,7 +1,7 @@
 docker pull sweenig/ansible-docker
 function ansible-playbook {
   $allArgs = $PsBoundParameters.values + $args
-  docker run --rm -it -v ${pwd}:/ansible/playbooks ansible-docker $allArgs
+  docker run --rm -it -v ${pwd}:/ansible/playbooks sweenig/ansible-docker $allArgs
 }
 
 docker pull alpine/git
@@ -13,7 +13,7 @@ function git {
 docker pull sweenig/python-3
 function python {
   $allArgs = $PsBoundParameters.values + $args
-  docker run --rm -it -v ${pwd}:/usr/src/app sweenig:python $allArgs
+  docker run --rm -it -v ${pwd}:/usr/src/app sweenig/python-3 $allArgs
 }
 
 docker pull groovy
