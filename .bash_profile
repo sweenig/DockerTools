@@ -1,3 +1,4 @@
+docker images |grep -v REPOSITORY|awk '{print $1}'|xargs -L1 docker pull
 alias git='docker run --rm -it -v `pwd`:/git alpine/git'
 alias python='docker run --rm -it -v `pwd`:/usr/src/app sweenig/python-3'
 alias ansible-playbook='docker run --rm -it -v `pwd`:/ansible/playbooks sweenig/ansible-docker'
